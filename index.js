@@ -1,5 +1,5 @@
 import fs from "fs";
-import { simulate } from "./Simulation/simulation.js";
+import { simulate } from "./simulation/simulation.js";
 
 const simulateResult = simulate(30);
 
