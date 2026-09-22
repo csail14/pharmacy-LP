@@ -45,3 +45,27 @@ To make sure that you will not break anything in the existing code, we added the
 ```sh
 yarn start
 ```
+
+
+## Camille's comments
+
+### How to run
+
+```
+yarn install
+yarn test    # unit tests + golden master
+yarn start   # regenerates output.json
+```
+
+I spent about 1h30.
+
+1. I extracted the simulation from ` index.js` and added test to compare to output.json
+2. I wrote unit test for every existing ryles before refactoring, to be able to check the result.
+3. I refactored `updateBenefitValue`. Each drug has its own update function. Drug exposes small method and limit are stored in const.
+4. I added Dalfalgan with TDD.
+
+I have some ideas for improvement : 
+- create an unit of increase / decrease : Here the code can inscrease or decrease with the basic unit of 1, but with a const we could fix and change if necessary this unit in order to be more flexible. For exemple if unit became 2 instead of one, doliprane would decrease of 2 before expiration and of 4 after expiration, and twice for Dafalgan
+
+- At the end of the process we could create function for each drug which return the number to add to benefit (positive or negativ). So for the dafalgan we could use the basic drugs function and just add twice the return value instead of implement a new function specific for dafalgan
+
