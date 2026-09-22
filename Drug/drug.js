@@ -6,6 +6,11 @@ const updateBasicDrug = (drug) => {
   drug.decreaseBenefit(drug.isExpired() ? 2 : 1);
 };
 
+const updateDafalganDrug = (drug) => {
+  drug.decreaseExpiresIn();
+  drug.decreaseBenefit(drug.isExpired() ? 4 : 2);
+};
+
 const updateHerbalTeaDrug = (drug) => {
   drug.decreaseExpiresIn();
   drug.increaseBenefit(drug.isExpired() ? 2 : 1);
@@ -31,7 +36,8 @@ const updateFervexDrug = (drug) => {
 const UPDATERS = {
   "Herbal Tea": updateHerbalTeaDrug,
   "Magic Pill": updateMagicPillDrug,
-  "Fervex": updateFervexDrug,
+  Fervex: updateFervexDrug,
+  Dafalgan: updateDafalganDrug,
 };
 
 export class Drug {
