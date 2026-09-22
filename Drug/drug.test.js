@@ -96,3 +96,26 @@ describe("One update on Fervex drug", () => {
     );
   });
 });
+
+describe("One update on Dafalgan drug", () => {
+  it("should decrease the benefit and expiresIn of 2 when expiresIn is greater than 0 and benefit is between 0 and 50", () => {
+    expect(simulateOneUpdate("Dafalgan", 2, 3)).toEqual(
+      new Drug("Dafalgan", 1, 1),
+    );
+  });
+  it("should decrease the benefit and expiresIn of 4 when expiresIn is less than 0 and benefit is between 0 and 50", () => {
+    expect(simulateOneUpdate("Dafalgan", -1, 5)).toEqual(
+      new Drug("Dafalgan", -2, 1),
+    );
+  });
+  it("should decrease the benefit and expiresIn of 4 when expiresIn is egal 0 and benefit is between 0 and 50", () => {
+    expect(simulateOneUpdate("Dafalgan", 0, 5)).toEqual(
+      new Drug("Dafalgan", -1, 1),
+    );
+  });
+  it("should decrease only the expiresIn if the benefit is egal 0", () => {
+    expect(simulateOneUpdate("Dafalgan", 3, 0)).toEqual(
+      new Drug("Dafalgan", 2, 0),
+    );
+  });
+});
