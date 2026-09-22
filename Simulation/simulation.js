@@ -1,4 +1,5 @@
-import { Drug, Pharmacy } from "../Pharmacy/pharmacy.js";
+import { Pharmacy } from "../Pharmacy/pharmacy.js";
+import { Drug } from "../Drug/drug.js";
 
 export const createInitialDrugs = () => [
   new Drug("Doliprane", 20, 30),
