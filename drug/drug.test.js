@@ -103,12 +103,12 @@ describe("One update on Dafalgan drug", () => {
       new Drug("Dafalgan", 1, 1),
     );
   });
-  it("should decrease the benefit and expiresIn of 4 when expiresIn is less than 0 and benefit is between 0 and 50", () => {
+  it("should decrease the benefit of 4 when expiresIn is less than 0 and benefit is between 0 and 50", () => {
     expect(simulateOneUpdate("Dafalgan", -1, 5)).toEqual(
       new Drug("Dafalgan", -2, 1),
     );
   });
-  it("should decrease the benefit and expiresIn of 4 when expiresIn is equal 0 and benefit is between 0 and 50", () => {
+  it("should decrease the benefit of 4 when expiresIn is equal 0 and benefit is between 0 and 50", () => {
     expect(simulateOneUpdate("Dafalgan", 0, 5)).toEqual(
       new Drug("Dafalgan", -1, 1),
     );
