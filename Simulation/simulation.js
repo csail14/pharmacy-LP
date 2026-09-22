@@ -11,7 +11,7 @@ export const createInitialDrugs = () => [
 export const simulate = (days, drugs = createInitialDrugs()) => {
   const pharmacy = new Pharmacy(drugs);
   const log = [];
-  for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
+  for (let elapsedDays = 0; elapsedDays < days; elapsedDays++) {
     log.push(JSON.parse(JSON.stringify(pharmacy.updateBenefitValue())));
   }
   return log;
