@@ -19,9 +19,9 @@ const updateFervexDrug = (drug) => {
   drug.decreaseExpiresIn();
   if (drug.isExpired()) {
     drug.benefit = 0;
-  } else if (drug.expiresIn <= 5) {
+  } else if (drug.expiresIn < 5) {
     drug.increaseBenefit(3);
-  } else if (drug.expiresIn <= 10) {
+  } else if (drug.expiresIn < 10) {
     drug.increaseBenefit(2);
   } else {
     drug.increaseBenefit(1);
@@ -41,7 +41,7 @@ export class Drug {
     this.benefit = benefit;
   }
 
-  updateBenefitValue() {
+  updateDrugBenefit() {
     const updater = UPDATERS[this.name];
     if (updater) {
       updater(this);
@@ -51,7 +51,7 @@ export class Drug {
   }
 
   isExpired() {
-    return this.expiresIn <= 0;
+    return this.expiresIn < 0;
   }
 
   decreaseBenefit(amount) {
